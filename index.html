@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Fugitivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #fugirBtn {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To por ti</h1>
+        <p></p>
+        <h2>Oque tu me diz?</h2>
+        <div class="mt-4">
+            <button id="fugirBtn" class="btn btn-danger">Tô fora!</button>
+            <button id="normalBtn" class="btn btn-primary">Bora!</button>
+        </div>
+    </div>
+
+    <script>
+        const fugirBtn = document.getElementById('fugirBtn');
+
+        fugirBtn.addEventListener('mouseenter', () => {
+            moverBotao();
+        });
+
+        fugirBtn.addEventListener('touchstart', () => {
+            moverBotao();
+        });
+
+        function moverBotao() {
+            const x = Math.random() * (window.innerWidth - fugirBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - fugirBtn.offsetHeight);
+            fugirBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
